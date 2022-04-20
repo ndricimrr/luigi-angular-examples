@@ -1,1 +1,3 @@
-# luigi-angular-examples
+# luigi-angular-example
+
+Luigi Angular Example using Virtual Tree navigation
