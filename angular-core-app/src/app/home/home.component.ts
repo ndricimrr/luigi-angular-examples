@@ -1,7 +1,8 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import {
   addInitListener,
-  addContextUpdateListener
+  addContextUpdateListener,
+  linkManager
 } from '@luigi-project/client';
 
 @Component({
@@ -11,7 +12,7 @@ import {
 export class HomeComponent implements OnInit {
   public message: string;
 
-  constructor(private ref: ChangeDetectorRef) {}
+  constructor(private ref: ChangeDetectorRef) { }
 
   ngOnInit() {
     addInitListener(initialContext => {
@@ -26,6 +27,10 @@ export class HomeComponent implements OnInit {
         this.ref.detectChanges();
       }
     });
+  }
+
+  testParams() {
+    linkManager().withParams({ foo: "bar" }).navigate("/home/sample1");
   }
 
 }
